@@ -3,10 +3,7 @@ const User = require("../Modals/user.js");
 
 const newimageinsert = async(req,res, next) =>{
    const newimage = new Image(req.body);
-
-   console.log(newimage)
-   
-   try {
+    try {
     const user_Id = await User.findById({_id : req.params.userId});
     const imginsert = await newimage.save();
     if(user_Id){
